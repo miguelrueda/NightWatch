@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C918277326F19492000FFAE6 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918277226F19492000FFAE6 /* DetailsView.swift */; };
+		C918277526F19570000FFAE6 /* TaskSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918277426F19570000FFAE6 /* TaskSectionHeader.swift */; };
 		C94F80B126E7036E007207FF /* NightWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94F80B026E7036E007207FF /* NightWatchApp.swift */; };
 		C94F80B326E7036E007207FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94F80B226E7036E007207FF /* ContentView.swift */; };
 		C94F80B526E7036F007207FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C94F80B426E7036F007207FF /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C918277226F19492000FFAE6 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		C918277426F19570000FFAE6 /* TaskSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSectionHeader.swift; sourceTree = "<group>"; };
 		C94F80AD26E7036E007207FF /* NightWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94F80B026E7036E007207FF /* NightWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightWatchApp.swift; sourceTree = "<group>"; };
 		C94F80B226E7036E007207FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 				C94F80B426E7036F007207FF /* Assets.xcassets */,
 				C94F80B926E7036F007207FF /* Info.plist */,
 				C94F80B626E7036F007207FF /* Preview Content */,
+				C918277226F19492000FFAE6 /* DetailsView.swift */,
+				C918277426F19570000FFAE6 /* TaskSectionHeader.swift */,
 			);
 			path = NightWatch;
 			sourceTree = "<group>";
@@ -140,6 +146,8 @@
 			files = (
 				C94F80B326E7036E007207FF /* ContentView.swift in Sources */,
 				C94F80B126E7036E007207FF /* NightWatchApp.swift in Sources */,
+				C918277326F19492000FFAE6 /* DetailsView.swift in Sources */,
+				C918277526F19570000FFAE6 /* TaskSectionHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +288,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.miguelrueda.NightWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -302,7 +310,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.miguelrueda.NightWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
