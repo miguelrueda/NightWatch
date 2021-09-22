@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		C918277326F19492000FFAE6 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918277226F19492000FFAE6 /* DetailsView.swift */; };
 		C918277526F19570000FFAE6 /* TaskSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918277426F19570000FFAE6 /* TaskSectionHeader.swift */; };
+		C934ED3126F97B2700DAC9B9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C934ED3026F97B2700DAC9B9 /* Task.swift */; };
 		C94F80B126E7036E007207FF /* NightWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94F80B026E7036E007207FF /* NightWatchApp.swift */; };
 		C94F80B326E7036E007207FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94F80B226E7036E007207FF /* ContentView.swift */; };
 		C94F80B526E7036F007207FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C94F80B426E7036F007207FF /* Assets.xcassets */; };
 		C94F80B826E7036F007207FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C94F80B726E7036F007207FF /* Preview Assets.xcassets */; };
+		C9BAF7C726FAD54000DB0CB2 /* NightWatchTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BAF7C626FAD54000DB0CB2 /* NightWatchTasks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C918277226F19492000FFAE6 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		C918277426F19570000FFAE6 /* TaskSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSectionHeader.swift; sourceTree = "<group>"; };
+		C934ED3026F97B2700DAC9B9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		C94F80AD26E7036E007207FF /* NightWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94F80B026E7036E007207FF /* NightWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightWatchApp.swift; sourceTree = "<group>"; };
 		C94F80B226E7036E007207FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C94F80B426E7036F007207FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C94F80B726E7036F007207FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C94F80B926E7036F007207FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9BAF7C626FAD54000DB0CB2 /* NightWatchTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightWatchTasks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				C94F80B626E7036F007207FF /* Preview Content */,
 				C918277226F19492000FFAE6 /* DetailsView.swift */,
 				C918277426F19570000FFAE6 /* TaskSectionHeader.swift */,
+				C934ED3026F97B2700DAC9B9 /* Task.swift */,
+				C9BAF7C626FAD54000DB0CB2 /* NightWatchTasks.swift */,
 			);
 			path = NightWatch;
 			sourceTree = "<group>";
@@ -146,8 +152,10 @@
 			files = (
 				C94F80B326E7036E007207FF /* ContentView.swift in Sources */,
 				C94F80B126E7036E007207FF /* NightWatchApp.swift in Sources */,
+				C934ED3126F97B2700DAC9B9 /* Task.swift in Sources */,
 				C918277326F19492000FFAE6 /* DetailsView.swift in Sources */,
 				C918277526F19570000FFAE6 /* TaskSectionHeader.swift in Sources */,
+				C9BAF7C726FAD54000DB0CB2 /* NightWatchTasks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

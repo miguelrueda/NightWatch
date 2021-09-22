@@ -7,46 +7,41 @@
 
 import SwiftUI
 
-let nightlyTasks = [
-    "Check all windows",
-    "Check all doors",
-    "Check that the safe is locked",
-    "Check the mailbox",
-    "Inspect security cameras",
-    "Clear ice from sidewalks",
-    "Document \"strange and unusual\" occurrences"
-]
-
-let weeklyTasks = [
-    "Check inside all vacant rooms",
-    "Walk the perimeter of property"
-]
-
-let monthlyTasks = [
-    "Test security alarm",
-    "Test motion detectors",
-    "Test smoke alarms"
-]
-
 struct ContentView: View {
+    
+    @ObservedObject var nightWatchTasks: NightWatchTasks
+    
     var body: some View {
         NavigationView {
             List {
                 Section (header: TaskSectionHeader(symbolSystemName: "moon.stars", headerText: "Nightly Tasks")){
-                    ForEach(nightlyTasks, id: \.self, content: {
-                        taskName in NavigationLink(taskName, destination: DetailsView(taskName: taskName))
+                    ForEach(nightWatchTasks.nightlyTasks, content: {
+                        task in NavigationLink(
+                            destination: DetailsView(task: task),
+                            label: {
+                                TaskRow(task: task)
+                            })
                     })
                 }
                 
                 Section(header: TaskSectionHeader(symbolSystemName: "sunset", headerText: "Weekly Tasks")) {
-                    ForEach(weeklyTasks, id: \.self, content: {
-                        taskName in NavigationLink(taskName, destination: DetailsView(taskName: taskName))
+                    ForEach(nightWatchTasks.weeklyTasks, content: {
+                        task in
+                        NavigationLink(
+                            destination: DetailsView(task: task),
+                            label: {
+                                TaskRow(task: task)
+                            })
                     })
                 }
                 
                 Section (header: TaskSectionHeader(symbolSystemName: "calendar", headerText: "Monthly Tasks")){
-                    ForEach(monthlyTasks, id: \.self, content: {
-                        taskName in NavigationLink(taskName, destination: DetailsView(taskName: taskName))
+                    ForEach(nightWatchTasks.monthlyTasks, content: {
+                        task in NavigationLink(
+                            destination: DetailsView(task: task),
+                            label: {
+                                TaskRow(task: task)
+                            })
                     })
                 }
             }.listStyle(GroupedListStyle())
@@ -57,10 +52,34 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let nightWatchTasks = NightWatchTasks()
+        Group {
+            ContentView(nightWatchTasks: nightWatchTasks)
+            TaskRow(task: Task(name: "Test task", isComplete: true, lastCompleted: nil))
+                .previewLayout(.fixed(width: 300, height: 70))
+        }
     }
 }
 
-
-
-
+struct TaskRow: View {
+    
+    let task: Task
+    
+    var body: some View {
+        VStack {
+            if task.isComplete {
+                HStack {
+                    Image(systemName: "checkmark.square")
+                    Text(task.name)
+                        .foregroundColor(.gray)
+                        .strikethrough()
+                }
+            } else {
+                HStack {
+                    Image(systemName: "square")
+                    Text(task.name)
+                }
+            }
+        }
+    }
+}

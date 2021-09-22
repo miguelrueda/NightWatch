@@ -9,19 +9,17 @@ import SwiftUI
 
 struct DetailsView: View {
     
-    let taskName: String
+    let task: Task
     
     var body: some View {
         VStack {
-            Text(taskName)
-            Text("placehoder1")
-            Text("placehoder2")
+            Text(task.name)
         }
     }
 }
 
 struct DetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailsView(taskName: "Test Task")
+        DetailsView(task: Task(name: "Test Task", isComplete: false, lastCompleted: nil))
     }
 }
