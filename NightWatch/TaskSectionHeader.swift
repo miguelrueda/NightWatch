@@ -17,6 +17,7 @@ struct TaskSectionHeader: View {
             Image(systemName: symbolSystemName)
             Text(headerText)
         }.font(.title3)
+        .foregroundColor(.accentColor)
     }
 }
 

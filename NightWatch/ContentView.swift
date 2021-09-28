@@ -10,42 +10,119 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var nightWatchTasks: NightWatchTasks
+    @State private var focusModeOn = false
     
     var body: some View {
         NavigationView {
             List {
                 Section (header: TaskSectionHeader(symbolSystemName: "moon.stars", headerText: "Nightly Tasks")){
-                    ForEach(nightWatchTasks.nightlyTasks, content: {
-                        task in NavigationLink(
-                            destination: DetailsView(task: task),
-                            label: {
-                                TaskRow(task: task)
+                    
+                    let taskIndices = nightWatchTasks.nightlyTasks.indices
+                    let tasks = nightWatchTasks.nightlyTasks
+                    let taskIndexPairs = Array(zip(tasks, taskIndices))
+                    
+                    ForEach(taskIndexPairs, id:\.0.id, content: {
+                        task, taskIndex in
+                        let nightWatchTasksWrapper = $nightWatchTasks
+                        let tasksBinding = nightWatchTasksWrapper.nightlyTasks
+                        
+                        let theTaskBinding = tasksBinding[taskIndex]
+                        
+                        if focusModeOn == false || (focusModeOn && task.isComplete == false) {
+                            NavigationLink(
+                                destination: DetailsView(task: theTaskBinding),
+                                label: {
+                                    TaskRow(task: task)
                             })
+                        }
+                    }).onDelete(perform: { indexSet in
+                        nightWatchTasks.nightlyTasks
+                            .remove(atOffsets: indexSet)
+                    }).onMove(perform:  { indices, newOffset in
+                        nightWatchTasks.nightlyTasks
+                            .move(fromOffsets: indices, toOffset: newOffset)
                     })
                 }
                 
                 Section(header: TaskSectionHeader(symbolSystemName: "sunset", headerText: "Weekly Tasks")) {
-                    ForEach(nightWatchTasks.weeklyTasks, content: {
-                        task in
-                        NavigationLink(
-                            destination: DetailsView(task: task),
-                            label: {
-                                TaskRow(task: task)
+                    
+                    let taskIndices = nightWatchTasks.weeklyTasks.indices
+                    let tasks = nightWatchTasks.weeklyTasks
+                    let taskIndexPairs = Array(zip(tasks, taskIndices))
+                    
+                    ForEach(taskIndexPairs, id:\.0.id, content: {
+                        task, taskIndex in
+                        
+                        let nightWatchTasksWrapper = $nightWatchTasks
+                        let tasksBinding = nightWatchTasksWrapper.weeklyTasks
+                        
+                        let theTaskBinding = tasksBinding[taskIndex]
+                        
+                        if focusModeOn == false || (focusModeOn && task.isComplete == false) {
+                            NavigationLink(
+                                destination: DetailsView(task: theTaskBinding),
+                                label: {
+                                    TaskRow(task: task)
                             })
+                        }
+                    }).onDelete(perform: { indexSet in
+                        nightWatchTasks.weeklyTasks
+                            .remove(atOffsets: indexSet)
+                    }).onMove(perform:  { indices, newOffset in
+                        nightWatchTasks.weeklyTasks
+                            .move(fromOffsets: indices, toOffset: newOffset)
                     })
                 }
                 
                 Section (header: TaskSectionHeader(symbolSystemName: "calendar", headerText: "Monthly Tasks")){
-                    ForEach(nightWatchTasks.monthlyTasks, content: {
-                        task in NavigationLink(
-                            destination: DetailsView(task: task),
-                            label: {
-                                TaskRow(task: task)
+                    
+                    let taskIndices = nightWatchTasks.monthlyTasks.indices
+                    let tasks = nightWatchTasks.monthlyTasks
+                    let taskIndexPairs = Array(zip(tasks, taskIndices))
+                    
+                    ForEach(taskIndexPairs, id:\.0.id, content: {
+                        task, taskIndex in
+                        
+                        let nightWatchTasksWrapper = $nightWatchTasks
+                        let tasksBinding = nightWatchTasksWrapper.monthlyTasks
+                        
+                        let theTaskBinding = tasksBinding[taskIndex]
+                        
+                        if focusModeOn == false || (focusModeOn && task.isComplete == false) {
+                            NavigationLink(
+                                destination: DetailsView(task: theTaskBinding),
+                                label: {
+                                    TaskRow(task: task)
                             })
+                        }
+                    }).onDelete(perform: { indexSet in
+                        nightWatchTasks.monthlyTasks
+                            .remove(atOffsets: indexSet)
+                    }).onMove(perform:  { indices, newOffset in
+                        nightWatchTasks.monthlyTasks
+                            .move(fromOffsets: indices, toOffset: newOffset)
                     })
                 }
             }.listStyle(GroupedListStyle())
             .navigationTitle("Home")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Reset") {
+                        let refreshedNightWatchTasks = NightWatchTasks()
+                        self.nightWatchTasks.nightlyTasks = refreshedNightWatchTasks.nightlyTasks
+                        self.nightWatchTasks.weeklyTasks = refreshedNightWatchTasks.weeklyTasks
+                        self.nightWatchTasks.monthlyTasks = refreshedNightWatchTasks.monthlyTasks
+                    }
+                }
+                ToolbarItem(placement: .bottomBar) {
+                    Toggle(isOn: $focusModeOn, label: {
+                        Text("Focus Mode")
+                    })
+                }
+            }
         }
     }
 }
